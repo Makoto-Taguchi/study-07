@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>翻訳アプリケーション</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="">
+            翻訳前（英語）<br>
+            <textarea type="text" id="src_sentence" class="src-view-area"></textarea><br>
+            <button id="translate">翻訳</button><br/>
+        </div>
+        <div>
+            翻訳後（日本語）<br>
+            <textarea id="trans_result" class="translated-view-area"></textarea>
+        </div>
+
+        <script type="text/javascript" src="./eel.js"></script>
+        <script>
+            translate.addEventListener('click', () => {
+                // 空欄の時はアラート
+                if (src_sentence.value == ""){
+                    alert("日本語が入力されていません");
+                    return false;
+                } else {
+                    // Pythonの関数を呼び出し
+                    eel.translation(src_sentence.value)
+                    return true;
+                }
+            })
+
+            // Pythonへ関数登録
+            eel.expose(view_translated_js)
+            function view_translated_js(txt){
+                trans_result.value += txt + "\n"
+            }
+        </script>
+
+    </body>
+</html>
