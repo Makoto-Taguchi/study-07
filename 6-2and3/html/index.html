@@ -5,8 +5,18 @@
     </head>
     <body>
         <div class="">
-            原文の言語：<input type="text" id="before_lang"></input><br>
-            翻訳後の言語：<input type="text" id="after_lang"></input><br>
+            原文の言語：<select id="before_lang">
+            <option value="en">英語</option>
+            <option value="ja">日本語</option>
+            <option value="ko">韓国語</option>
+            <option value="de">ドイツ語</option>
+            </select><br>
+            翻訳後の言語：<select id="after_lang">
+            <option value="en">英語</option>
+            <option value="ja">日本語</option>
+            <option value="ko">韓国語</option>
+            <option value="de">ドイツ語</option>
+            </select><br>
             原文を入力してください<br>
             <textarea type="text" id="src_sentence" class="src-view-area"></textarea><br>
             <button id="translate">翻訳</button><br/>
